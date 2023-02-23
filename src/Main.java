@@ -17,7 +17,7 @@ public class Main {
 Результат программы выведите в консоль. Если год високосный, то напечатайте сообщение: «...  год — високосный год».
  Если год невисокосный, то: «... год — невисокосный год».
 */
-        if (i % 4 == 0 && i % 100 != 0) {
+        if (i % 4 == 0 && i % 100 != 0 || i%400==0) {
             System.out.println(i + "  год — високосный год");
         } else {
             System.out.println(i + "  год — не високосный год");
@@ -68,7 +68,7 @@ int currentYear = LocalDate.now().getYear();
         } else if (distance >= 60 && distance < 100) {
             duration +=3;
         } else if (distance >= 100){
-            System.out.println("К сожалению, мы не сможем доставить карту");}
+            duration=-1;}
 
 
         return duration;
@@ -77,7 +77,7 @@ int currentYear = LocalDate.now().getYear();
     public static void main(String[] args) {
         System.out.println("Задание 1.");
 
-        int year = 2052;
+        int year = 1800;
         leapYear(year);
 
 
@@ -88,7 +88,12 @@ int currentYear = LocalDate.now().getYear();
 
         System.out.println("Задание 3.");
         int distanceNew = 95;
+        if (durationDelivery(distanceNew)>=0)
          System.out.println("Потребуется дней: " +durationDelivery(distanceNew));
+        else {
+            System.out.println("К сожалению мы не можем доставить Вашу карту");
+
+        }
     }
 
 
